@@ -29,18 +29,8 @@ let keys;
 
 function create() {
 
-    // Dunia rumput
-this.add.rectangle(
-    400,
-    300,
-    800,
-    600,
-    0x3cb043
-);
-
-
-    // Player
-player = let grass = this.add.rectangle(
+// Dunia rumput
+let grass = this.add.rectangle(
     400,
     300,
     800,
@@ -49,6 +39,18 @@ player = let grass = this.add.rectangle(
 );
 
 grass.setDepth(0);
+
+
+// Player
+player = this.add.rectangle(
+    400,
+    300,
+    32,
+    32,
+    0x3498db
+);
+
+player.setDepth(1);
 
 
 this.physics.add.existing(player);
