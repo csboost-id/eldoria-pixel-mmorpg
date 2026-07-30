@@ -43,15 +43,6 @@ obstacles = this.physics.add.staticGroup();
     grass.setDepth(0);
 
 
-    // Pohon
-    let trunk = obstacles.create(
-    600,
-    330,
-    20,
-    60
-);
-
-trunk.setSize(20,60);
 // Pohon collision
 let trunk = obstacles.create(
     600,
