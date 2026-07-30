@@ -4,7 +4,7 @@ const config = {
     width: 800,
     height: 600,
 
-    backgroundColor: "#222222",
+backgroundColor: "#000000",
 
     physics: {
         default: "arcade",
@@ -30,23 +30,25 @@ let keys;
 function create() {
 
     // Dunia rumput
-    this.add.rectangle(
-        400,
-        300,
-        800,
-        600,
-        0x5aa05a
-    );
+this.add.rectangle(
+    400,
+    300,
+    800,
+    600,
+    0x3cb043
+);
 
 
     // Player
-player = this.add.rectangle(
+player = let grass = this.add.rectangle(
     400,
     300,
-    32,
-    32,
-    0x3498db
+    800,
+    600,
+    0x3cb043
 );
+
+grass.setDepth(0);
 
 
 this.physics.add.existing(player);
