@@ -27,6 +27,17 @@ function preload() {
 
 function create() {
 
+
+    // Membuat dunia rumput
+    this.add.rectangle(
+        1500,
+        1500,
+        3000,
+        3000,
+        0x5aa05a
+    );
+
+
     player = this.add.rectangle(400, 300, 32, 32, 0x3498db);
 
     this.physics.add.existing(player);
