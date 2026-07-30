@@ -31,6 +31,21 @@ function create() {
 
     this.physics.add.existing(player);
 
+
+    // Ukuran dunia
+    this.physics.world.setBounds(0, 0, 3000, 3000);
+
+    // Player tidak bisa keluar dunia
+    player.body.setCollideWorldBounds(true);
+
+    // Kamera mengikuti player
+    this.cameras.main.setBounds(0, 0, 3000, 3000);
+    this.cameras.main.startFollow(player);
+
+    // Zoom kamera
+    this.cameras.main.setZoom(2);
+
+
     player.body.setCollideWorldBounds(true);
 
     cursors = this.input.keyboard.createCursorKeys();
@@ -38,7 +53,7 @@ function create() {
     keys = this.input.keyboard.addKeys({
         W: Phaser.Input.Keyboard.KeyCodes.W,
         A: Phaser.Input.Keyboard.KeyCodes.A,
-        S: Phaser.Input.Keyboard.KeyCodes.S,
+        S: Phaser.Input.Keyboard.KeyCodes.D,
         D: Phaser.Input.Keyboard.KeyCodes.D
     });
 
