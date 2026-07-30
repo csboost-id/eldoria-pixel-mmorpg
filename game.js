@@ -41,7 +41,7 @@ function create() {
     grass.setDepth(0);
 
 
-   // Batang pohon
+   // Pohon
 let trunk = this.add.rectangle(
     600,
     330,
@@ -53,7 +53,6 @@ let trunk = this.add.rectangle(
 trunk.setDepth(1);
 
 
-// Daun pohon
 let leaves = this.add.rectangle(
     600,
     280,
@@ -63,6 +62,18 @@ let leaves = this.add.rectangle(
 );
 
 leaves.setDepth(1);
+
+
+// Batu di bawah pohon
+let rock = this.add.rectangle(
+    600,
+    430,
+    50,
+    40,
+    0x555555
+);
+
+rock.setDepth(1);
 
 
     // Player
