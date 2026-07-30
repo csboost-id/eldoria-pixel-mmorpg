@@ -354,10 +354,12 @@ if (keys.SPACE.isDown && canAttack && monster)
     );
 }
 }
-else
-{
-    console.log("Terlalu jauh!");
+    else
+    {
+        console.log("Terlalu jauh!");
+    }
 }
+
 
 // Monster menyerang player
 if (monster && monsterCanAttack)
