@@ -29,28 +29,40 @@ let keys;
 
 function create() {
 
-// Dunia rumput
-let grass = this.add.rectangle(
-    400,
-    300,
-    800,
-    600,
-    0x3cb043
-);
+    // Dunia rumput
+    let grass = this.add.rectangle(
+        400,
+        300,
+        800,
+        600,
+        0x3cb043
+    );
 
-grass.setDepth(0);
+    grass.setDepth(0);
 
 
-// Player
-player = this.add.rectangle(
-    400,
-    300,
-    32,
-    32,
-    0x3498db
-);
+    // Pohon test
+    let tree = this.add.rectangle(
+        600,
+        300,
+        50,
+        80,
+        0x8B4513
+    );
 
-player.setDepth(1);
+    tree.setDepth(1);
+
+
+    // Player
+    player = this.add.rectangle(
+        400,
+        300,
+        32,
+        32,
+        0x3498db
+    );
+
+    player.setDepth(2);
 
 
 this.physics.add.existing(player);
