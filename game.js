@@ -75,28 +75,50 @@ trunkVisual.setDepth(1);
     leaves.setDepth(1);
 
 
-    // Batu
-    let rock = this.add.rectangle(
-        600,
-        430,
-        50,
-        40,
-        0x555555
-    );
+    // Batu collision
+let rockCollider = obstacles.create(
+    600,
+    430,
+    50,
+    40
+);
 
-    rock.setDepth(1);
+rockCollider.setVisible(false);
 
 
-    // Rumah
-    let house = this.add.rectangle(
-        200,
-        200,
-        120,
-        100,
-        0xaa4444
-    );
+// Batu visual
+let rock = this.add.rectangle(
+    600,
+    430,
+    50,
+    40,
+    0x555555
+);
 
-    house.setDepth(1);
+rock.setDepth(1);
+
+
+    // Rumah collision
+let houseCollider = obstacles.create(
+    200,
+    200,
+    120,
+    100
+);
+
+houseCollider.setVisible(false);
+
+
+// Rumah visual
+let house = this.add.rectangle(
+    200,
+    200,
+    120,
+    100,
+    0xaa4444
+);
+
+house.setDepth(1);
 
 
     // Player
