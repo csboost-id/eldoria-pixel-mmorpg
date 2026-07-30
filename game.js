@@ -34,6 +34,9 @@ let monsterText;
 let playerHP = 100;
 let monsterHP = 100;
 
+let playerEXP = 0;
+let expText;
+
 let attackRange = 80;
 
 let canAttack = true;
@@ -186,6 +189,18 @@ monsterText = this.add.text(
 
 monsterText.setScrollFactor(0);
 
+    expText = this.add.text(
+    20,
+    80,
+    "EXP: 0",
+    {
+        fontSize: "24px",
+        fill: "#ffff00"
+    }
+);
+
+expText.setScrollFactor(0);
+    
     this.physics.add.existing(player);
     this.physics.add.collider(
     player,
@@ -318,24 +333,31 @@ if (keys.SPACE.isDown && canAttack && monster)
 
 
         if (monsterHP <= 0)
-        {
-            monster.destroy();
+{
+    monster.destroy();
 
-            monster = null;
+    monster = null;
 
-            monsterText.setText(
-                "Monster mati!"
-            );
+    playerEXP += 10;
 
-            console.log("Monster mati!");
-        }
-    }
-    else
-    {
-        console.log("Terlalu jauh!");
-    }
+    expText.setText(
+        "EXP: " + playerEXP
+    );
+
+    monsterText.setText(
+        "Monster mati!"
+    );
+
+    console.log(
+        "Monster mati! EXP:",
+        playerEXP
+    );
 }
-
+}
+else
+{
+    console.log("Terlalu jauh!");
+}
 
 // Monster menyerang player
 if (monster && monsterCanAttack)
