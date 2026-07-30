@@ -29,7 +29,8 @@ let obstacles;
 
 
 function create() {
-
+obstacles = this.physics.add.staticGroup();
+    
     // Dunia rumput
     let grass = this.add.rectangle(
         400,
@@ -102,6 +103,10 @@ function create() {
 
 
     this.physics.add.existing(player);
+    this.physics.add.collider(
+    player,
+    obstacles
+);
 
 
     // Batas dunia
