@@ -39,6 +39,8 @@ let attackRange = 80;
 let canAttack = true;
 let monsterCanAttack = true;
 
+let monsterSpeed = 80;
+
 function create() {
 obstacles = this.physics.add.staticGroup();
     
@@ -240,9 +242,45 @@ function update() {
 
 
     if (keys.S.isDown)
+{
+    player.body.setVelocityY(speed);
+}
+
+
+// Monster mengejar player
+if (monster)
+{
+    let monsterDistance = Phaser.Math.Distance.Between(
+        monster.x,
+        monster.y,
+        player.x,
+        player.y
+    );
+
+
+    if (monsterDistance > attackRange)
     {
-        player.body.setVelocityY(speed);
+        let angle = Phaser.Math.Angle.Between(
+            monster.x,
+            monster.y,
+            player.x,
+            player.y
+        );
+
+
+        monster.body.setVelocity(
+            Math.cos(angle) * monsterSpeed,
+            Math.sin(angle) * monsterSpeed
+        );
     }
+    else
+    {
+        monster.body.setVelocity(0);
+    }
+}
+
+
+// Player menyerang monster
 if (keys.SPACE.isDown && canAttack && monster)
 {
     let distance = Phaser.Math.Distance.Between(
@@ -269,6 +307,7 @@ if (keys.SPACE.isDown && canAttack && monster)
 
         canAttack = false;
 
+
         this.time.delayedCall(500, () => {
             canAttack = true;
         });
@@ -278,13 +317,13 @@ if (keys.SPACE.isDown && canAttack && monster)
         {
             monster.destroy();
 
-monster = null;
+            monster = null;
 
-monsterText.setText(
-    "Monster mati!"
-);
+            monsterText.setText(
+                "Monster mati!"
+            );
 
-console.log("Monster mati!");
+            console.log("Monster mati!");
         }
     }
     else
@@ -294,7 +333,7 @@ console.log("Monster mati!");
 }
 
 
-// MONSTER MENYERANG PLAYER
+// Monster menyerang player
 if (monster && monsterCanAttack)
 {
     let monsterDistance = Phaser.Math.Distance.Between(
@@ -328,6 +367,4 @@ if (monster && monsterCanAttack)
             monsterCanAttack = true;
         });
     }
-}
-
 }
