@@ -41,16 +41,28 @@ function create() {
     grass.setDepth(0);
 
 
-    // Pohon test
-    let tree = this.add.rectangle(
-        600,
-        300,
-        50,
-        80,
-        0x8B4513
-    );
+   // Batang pohon
+let trunk = this.add.rectangle(
+    600,
+    330,
+    20,
+    60,
+    0x8B4513
+);
 
-    tree.setDepth(1);
+trunk.setDepth(1);
+
+
+// Daun pohon
+let leaves = this.add.rectangle(
+    600,
+    280,
+    80,
+    80,
+    0x228B22
+);
+
+leaves.setDepth(1);
 
 
     // Player
