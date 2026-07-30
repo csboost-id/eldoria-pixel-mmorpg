@@ -54,13 +54,10 @@ player.body.setCollideWorldBounds(true);
 
 
 // Kamera mengikuti player
-this.cameras.main.startFollow(player);
-
-// Ukuran dunia kamera
-this.cameras.main.setBounds(0, 0, 800, 600);
-
-// Zoom normal
-this.cameras.main.setZoom(1);
+// Kamera dimatikan dulu untuk test
+// this.cameras.main.startFollow(player);
+// this.cameras.main.setBounds(0, 0, 800, 600);
+// this.cameras.main.setZoom(1);
 
     cursors = this.input.keyboard.createCursorKeys();
 
