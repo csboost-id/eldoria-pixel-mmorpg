@@ -146,6 +146,10 @@ monster.setDepth(1);
 
     this.physics.add.existing(monster);
 monster.body.setCollideWorldBounds(true);
+this.physics.add.collider(
+    monster,
+    obstacles
+);
     
     // Player
     player = this.add.rectangle(
