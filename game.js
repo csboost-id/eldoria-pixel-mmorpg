@@ -40,21 +40,28 @@ function create() {
 
 
     // Player
-    player = this.add.rectangle(
-        400,
-        300,
-        32,
-        32,
-        0x3498db
-    );
+player = this.add.rectangle(
+    400,
+    300,
+    32,
+    32,
+    0x3498db
+);
 
 
-    this.physics.add.existing(player);
+this.physics.add.existing(player);
+
+
+// Batas dunia
+this.physics.world.setBounds(0,0,800,600);
+
+
+// Player tidak bisa keluar
+player.body.setCollideWorldBounds(true);
 
 
 // Kamera mengikuti player
 this.cameras.main.startFollow(player);
-
 
 // Keyboard
 keys = this.input.keyboard.addKeys({
