@@ -213,5 +213,12 @@ if (keys.SPACE.isDown)
     monsterHP -= 10;
 
     console.log("Monster HP:", monsterHP);
-}
+
+
+    if (monsterHP <= 0)
+    {
+        monster.destroy();
+
+        console.log("Monster mati!");
+    }
 }
