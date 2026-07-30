@@ -368,3 +368,4 @@ if (monster && monsterCanAttack)
         });
     }
 }
+}
