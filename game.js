@@ -37,6 +37,10 @@ let monsterHP = 100;
 let playerEXP = 0;
 let expText;
 
+let playerLevel = 1;
+let expNeed = 100;
+let levelText;
+
 let attackRange = 80;
 
 let canAttack = true;
@@ -200,6 +204,18 @@ monsterText.setScrollFactor(0);
 );
 
 expText.setScrollFactor(0);
+
+    levelText = this.add.text(
+20,
+110,
+"Level: 1",
+{
+    fontSize: "24px",
+    fill: "#00ff00"
+}
+);
+
+levelText.setScrollFactor(0);
     
     this.physics.add.existing(player);
     this.physics.add.collider(
@@ -340,13 +356,44 @@ if (keys.SPACE.isDown && canAttack && monster)
 
     playerEXP += 10;
 
+
+    if (playerEXP >= expNeed)
+    {
+        playerLevel++;
+
+        playerEXP = 0;
+
+        expNeed += 100;
+
+
+        playerHP += 20;
+
+        levelText.setText(
+            "Level: " + playerLevel
+        );
+
+
+        hpText.setText(
+            "Player HP: " + playerHP
+        );
+
+
+        console.log(
+            "LEVEL UP!",
+            playerLevel
+        );
+    }
+
+
     expText.setText(
         "EXP: " + playerEXP
     );
 
+
     monsterText.setText(
         "Monster mati!"
     );
+
 
     console.log(
         "Monster mati! EXP:",
