@@ -27,6 +27,7 @@ let player;
 let keys;
 let obstacles;
 let monster;
+let monsterHP = 100;
 
 
 function create() {
@@ -167,11 +168,12 @@ monster.setDepth(1);
 
     // Keyboard
     keys = this.input.keyboard.addKeys({
-        W: Phaser.Input.Keyboard.KeyCodes.W,
-        A: Phaser.Input.Keyboard.KeyCodes.A,
-        S: Phaser.Input.Keyboard.KeyCodes.S,
-        D: Phaser.Input.Keyboard.KeyCodes.D
-    });
+    W: Phaser.Input.Keyboard.KeyCodes.W,
+    A: Phaser.Input.Keyboard.KeyCodes.A,
+    S: Phaser.Input.Keyboard.KeyCodes.D,
+    D: Phaser.Input.Keyboard.KeyCodes.D,
+    SPACE: Phaser.Input.Keyboard.KeyCodes.SPACE
+});
 
 }
 
@@ -206,5 +208,10 @@ function update() {
     {
         player.body.setVelocityY(speed);
     }
+if (keys.SPACE.isDown)
+{
+    monsterHP -= 10;
 
+    console.log("Monster HP:", monsterHP);
+}
 }
