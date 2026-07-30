@@ -29,6 +29,7 @@ let obstacles;
 let monster;
 let monsterHP = 100;
 let attackRange = 80;
+let canAttack = true;
 
 
 function create() {
@@ -209,7 +210,7 @@ function update() {
     {
         player.body.setVelocityY(speed);
     }
-if (keys.SPACE.isDown)
+if (keys.SPACE.isDown && canAttack)
 {
     let distance = Phaser.Math.Distance.Between(
         player.x,
@@ -220,19 +221,25 @@ if (keys.SPACE.isDown)
 
 
     if (distance <= attackRange)
+{
+    monsterHP -= 10;
+
+    console.log("Monster HP:", monsterHP);
+
+    canAttack = false;
+
+    this.time.delayedCall(500, () => {
+        canAttack = true;
+    });
+
+
+    if (monsterHP <= 0)
     {
-        monsterHP -= 10;
+        monster.destroy();
 
-        console.log("Monster HP:", monsterHP);
-
-
-        if (monsterHP <= 0)
-        {
-            monster.destroy();
-
-            console.log("Monster mati!");
-        }
+        console.log("Monster mati!");
     }
+}
     else
     {
         console.log("Terlalu jauh!");
