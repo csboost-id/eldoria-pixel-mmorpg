@@ -28,6 +28,9 @@ let keys;
 let obstacles;
 let monster;
 
+let hpText;
+let monsterText;
+
 let playerHP = 100;
 let monsterHP = 100;
 
@@ -149,7 +152,30 @@ monster.setDepth(1);
     );
 
     player.setDepth(2);
+hpText = this.add.text(
+    20,
+    20,
+    "Player HP: 100",
+    {
+        fontSize: "24px",
+        fill: "#ffffff"
+    }
+);
 
+hpText.setScrollFactor(0);
+
+
+monsterText = this.add.text(
+    20,
+    50,
+    "Monster HP: 100",
+    {
+        fontSize: "24px",
+        fill: "#ff4444"
+    }
+);
+
+monsterText.setScrollFactor(0);
 
     this.physics.add.existing(player);
     this.physics.add.collider(
@@ -228,7 +254,11 @@ if (keys.SPACE.isDown && canAttack)
 {
     monsterHP -= 10;
 
-    console.log("Monster HP:", monsterHP);
+monsterText.setText(
+    "Monster HP: " + monsterHP
+);
+
+console.log("Monster HP:", monsterHP);
 
     canAttack = false;
 
