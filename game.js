@@ -25,9 +25,12 @@ const game = new Phaser.Game(config);
 
 let player;
 let keys;
+let obstacles;
 
 
 function create() {
+
+}
 
     // Dunia rumput
     let grass = this.add.rectangle(
@@ -35,7 +38,7 @@ function create() {
         300,
         800,
         600,
-        0x3cb043
+        0x808080
     );
 
     grass.setDepth(0);
