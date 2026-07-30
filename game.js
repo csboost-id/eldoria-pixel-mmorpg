@@ -29,13 +29,13 @@ function create() {
 
 
     // Membuat dunia rumput
-    this.add.rectangle(
-        1500,
-        1500,
-        3000,
-        3000,
-        0x5aa05a
-    );
+this.add.rectangle(
+    0,
+    0,
+    3000,
+    3000,
+    0x5aa05a
+).setOrigin(0,0);
 
 
     player = this.add.rectangle(400, 300, 32, 32, 0x3498db);
