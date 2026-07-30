@@ -30,8 +30,6 @@ let obstacles;
 
 function create() {
 
-}
-
     // Dunia rumput
     let grass = this.add.rectangle(
         400,
@@ -44,27 +42,31 @@ function create() {
     grass.setDepth(0);
 
 
-   // Pohon
-let trunk = this.add.rectangle(
-    600,
-    330,
-    20,
-    60,
-    0x8B4513
-);
+    // Pohon
+    let trunk = this.add.rectangle(
+        600,
+        330,
+        20,
+        60,
+        0x8B4513
+    );
 
-trunk.setDepth(1);
+    trunk.setDepth(1);
 
 
-let leaves = this.add.rectangle(
-    600,
-    280,
-    80,
-    80,
-    0x228B22
-);
+    let leaves = this.add.rectangle(
+        600,
+        280,
+        80,
+        80,
+        0x228B22
+    );
 
-leaves.setDepth(1);
+    leaves.setDepth(1);
+
+
+    // lanjut sampai player dan keyboard
+}
 
 
 // Batu di bawah pohon
