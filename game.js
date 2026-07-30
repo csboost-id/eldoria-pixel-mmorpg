@@ -1,37 +1,33 @@
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+const config = {
+    type: Phaser.AUTO,
 
+    width: 800,
+    height: 600,
 
-let player = {
-    x:400,
-    y:220,
-    size:30
+    backgroundColor: "#4a8f4a",
+
+    scene: {
+        create,
+        update
+    }
 };
 
+const game = new Phaser.Game(config);
 
-function gameLoop(){
+function create() {
 
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
+    this.add.text(
+        220,
+        280,
+        "Eldoria Pixel MMORPG",
+        {
+            fontSize: "32px",
+            color: "#ffffff"
+        }
     );
-
-
-    ctx.fillStyle="blue";
-
-    ctx.fillRect(
-        player.x,
-        player.y,
-        player.size,
-        player.size
-    );
-
-
-    requestAnimationFrame(gameLoop);
 
 }
 
+function update() {
 
-gameLoop();
+}
