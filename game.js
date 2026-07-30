@@ -52,13 +52,17 @@ function create() {
     this.physics.add.existing(player);
 
 
-    // Keyboard
-    keys = this.input.keyboard.addKeys({
-        W: Phaser.Input.Keyboard.KeyCodes.W,
-        A: Phaser.Input.Keyboard.KeyCodes.A,
-        S: Phaser.Input.Keyboard.KeyCodes.S,
-        D: Phaser.Input.Keyboard.KeyCodes.D
-    });
+// Kamera mengikuti player
+this.cameras.main.startFollow(player);
+
+
+// Keyboard
+keys = this.input.keyboard.addKeys({
+    W: Phaser.Input.Keyboard.KeyCodes.W,
+    A: Phaser.Input.Keyboard.KeyCodes.A,
+    S: Phaser.Input.Keyboard.KeyCodes.S,
+    D: Phaser.Input.Keyboard.KeyCodes.D
+});
 
 
 }
