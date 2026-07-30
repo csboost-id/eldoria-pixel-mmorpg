@@ -44,17 +44,35 @@ obstacles = this.physics.add.staticGroup();
 
 
     // Pohon
-    let trunk = this.add.rectangle(
-        600,
-        330,
-        20,
-        60,
-        0x8B4513
-    );
+    let trunk = obstacles.create(
+    600,
+    330,
+    20,
+    60
+);
 
-    trunk.setDepth(1);
+trunk.setSize(20,60);
+// Pohon collision
+let trunk = obstacles.create(
+    600,
+    330,
+    20,
+    60
+);
 
+trunk.setVisible(false);
 
+// Batang pohon terlihat
+let trunkVisual = this.add.rectangle(
+    600,
+    330,
+    20,
+    60,
+    0x8B4513
+);
+
+trunkVisual.setDepth(1);
+    
     let leaves = this.add.rectangle(
         600,
         280,
