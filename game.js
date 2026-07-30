@@ -28,6 +28,7 @@ let keys;
 let obstacles;
 let monster;
 let monsterHP = 100;
+let attackRange = 80;
 
 
 function create() {
@@ -210,16 +211,31 @@ function update() {
     }
 if (keys.SPACE.isDown)
 {
-    monsterHP -= 10;
+    let distance = Phaser.Math.Distance.Between(
+        player.x,
+        player.y,
+        monster.x,
+        monster.y
+    );
 
-    console.log("Monster HP:", monsterHP);
 
-
-    if (monsterHP <= 0)
+    if (distance <= attackRange)
     {
-        monster.destroy();
+        monsterHP -= 10;
 
-        console.log("Monster mati!");
+        console.log("Monster HP:", monsterHP);
+
+
+        if (monsterHP <= 0)
+        {
+            monster.destroy();
+
+            console.log("Monster mati!");
+        }
+    }
+    else
+    {
+        console.log("Terlalu jauh!");
     }
 }
 }
