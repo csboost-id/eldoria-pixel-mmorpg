@@ -65,31 +65,28 @@ function create() {
     leaves.setDepth(1);
 
 
-    // lanjut sampai player dan keyboard
-}
+    // Batu
+    let rock = this.add.rectangle(
+        600,
+        430,
+        50,
+        40,
+        0x555555
+    );
+
+    rock.setDepth(1);
 
 
-// Batu di bawah pohon
-let rock = this.add.rectangle(
-    600,
-    430,
-    50,
-    40,
-    0x555555
-);
+    // Rumah
+    let house = this.add.rectangle(
+        200,
+        200,
+        120,
+        100,
+        0xaa4444
+    );
 
-rock.setDepth(1);
-
-    // Rumah test
-let house = this.add.rectangle(
-    200,
-    200,
-    120,
-    100,
-    0xaa4444
-);
-
-house.setDepth(1);
+    house.setDepth(1);
 
 
     // Player
@@ -104,35 +101,32 @@ house.setDepth(1);
     player.setDepth(2);
 
 
-this.physics.add.existing(player);
+    this.physics.add.existing(player);
 
 
-// Batas dunia
-this.physics.world.setBounds(0,0,800,600);
+    // Batas dunia
+    this.physics.world.setBounds(0,0,800,600);
 
 
-// Batas kamera
-this.cameras.main.setBounds(0,0,800,600);
+    // Batas kamera
+    this.cameras.main.setBounds(0,0,800,600);
 
 
-// Player tidak bisa keluar
-player.body.setCollideWorldBounds(true);
+    player.body.setCollideWorldBounds(true);
 
 
-// Kamera mengikuti player
-this.cameras.main.startFollow(player);
+    this.cameras.main.startFollow(player);
 
-// Keyboard
-keys = this.input.keyboard.addKeys({
-    W: Phaser.Input.Keyboard.KeyCodes.W,
-    A: Phaser.Input.Keyboard.KeyCodes.A,
-    S: Phaser.Input.Keyboard.KeyCodes.S,
-    D: Phaser.Input.Keyboard.KeyCodes.D
-});
 
+    // Keyboard
+    keys = this.input.keyboard.addKeys({
+        W: Phaser.Input.Keyboard.KeyCodes.W,
+        A: Phaser.Input.Keyboard.KeyCodes.A,
+        S: Phaser.Input.Keyboard.KeyCodes.S,
+        D: Phaser.Input.Keyboard.KeyCodes.D
+    });
 
 }
-
 
 function update() {
 
