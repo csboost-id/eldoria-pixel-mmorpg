@@ -75,6 +75,17 @@ let rock = this.add.rectangle(
 
 rock.setDepth(1);
 
+    // Rumah test
+let house = this.add.rectangle(
+    200,
+    200,
+    120,
+    100,
+    0xaa4444
+);
+
+house.setDepth(1);
+
 
     // Player
     player = this.add.rectangle(
