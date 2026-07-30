@@ -251,29 +251,36 @@ if (keys.SPACE.isDown && canAttack)
 
 
     if (distance <= attackRange)
-{
-    monsterHP -= 10;
-
-monsterText.setText(
-    "Monster HP: " + monsterHP
-);
-
-console.log("Monster HP:", monsterHP);
-
-    canAttack = false;
-
-    this.time.delayedCall(500, () => {
-        canAttack = true;
-    });
-
-
-    if (monsterHP <= 0)
     {
-        monster.destroy();
+        monsterHP -= 10;
 
-        console.log("Monster mati!");
+
+        monsterText.setText(
+            "Monster HP: " + monsterHP
+        );
+
+
+        console.log(
+            "Monster HP:",
+            monsterHP
+        );
+
+
+        canAttack = false;
+
+
+        this.time.delayedCall(500, () => {
+            canAttack = true;
+        });
+
+
+        if (monsterHP <= 0)
+        {
+            monster.destroy();
+
+            console.log("Monster mati!");
+        }
     }
-}
     else
     {
         console.log("Terlalu jauh!");
