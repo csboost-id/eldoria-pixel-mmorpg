@@ -26,6 +26,7 @@ const game = new Phaser.Game(config);
 let player;
 let keys;
 let obstacles;
+let monster;
 
 
 function create() {
@@ -120,7 +121,17 @@ let house = this.add.rectangle(
 
 house.setDepth(1);
 
+// Monster test
+monster = this.add.rectangle(
+    650,
+    200,
+    40,
+    40,
+    0xff0000
+);
 
+monster.setDepth(1);
+    
     // Player
     player = this.add.rectangle(
         400,
