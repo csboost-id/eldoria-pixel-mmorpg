@@ -33,19 +33,19 @@ function create() {
 
 
     // Ukuran dunia
-    this.physics.world.setBounds(0, 0, 3000, 3000);
+this.physics.world.setBounds(0, 0, 3000, 3000);
 
-    // Player tidak bisa keluar dunia
-    player.body.setCollideWorldBounds(true);
+player.body.setCollideWorldBounds(true);
 
 
-// Kamera sementara dimatikan
-// this.cameras.main.setBounds(0, 0, 3000, 3000);
-// this.cameras.main.startFollow(player);
+// Kamera mengikuti player
+this.cameras.main.startFollow(player);
 
-// Zoom sementara dimatikan
-// this.cameras.main.setZoom(2);
+// Ukuran dunia kamera
+this.cameras.main.setBounds(0, 0, 3000, 3000);
 
+// Zoom normal
+this.cameras.main.setZoom(1);
 
     cursors = this.input.keyboard.createCursorKeys();
 
