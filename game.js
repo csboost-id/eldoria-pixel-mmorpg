@@ -240,7 +240,7 @@ function update() {
     {
         player.body.setVelocityY(speed);
     }
-if (keys.SPACE.isDown && canAttack)
+if (keys.SPACE.isDown && canAttack && monster)
 {
     let distance = Phaser.Math.Distance.Between(
         player.x,
@@ -254,11 +254,9 @@ if (keys.SPACE.isDown && canAttack)
     {
         monsterHP -= 10;
 
-
         monsterText.setText(
             "Monster HP: " + monsterHP
         );
-
 
         console.log(
             "Monster HP:",
@@ -267,7 +265,6 @@ if (keys.SPACE.isDown && canAttack)
 
 
         canAttack = false;
-
 
         this.time.delayedCall(500, () => {
             canAttack = true;
@@ -278,7 +275,9 @@ if (keys.SPACE.isDown && canAttack)
         {
             monster.destroy();
 
-            console.log("Monster mati!");
+monster = null;
+
+console.log("Monster mati!");
         }
     }
     else
@@ -286,4 +285,42 @@ if (keys.SPACE.isDown && canAttack)
         console.log("Terlalu jauh!");
     }
 }
+
+
+// MONSTER MENYERANG PLAYER
+if (monster && monsterCanAttack)
+{
+    let monsterDistance = Phaser.Math.Distance.Between(
+        player.x,
+        player.y,
+        monster.x,
+        monster.y
+    );
+
+
+    if (monsterDistance <= attackRange)
+    {
+        playerHP -= 5;
+
+
+        hpText.setText(
+            "Player HP: " + playerHP
+        );
+
+
+        console.log(
+            "Player HP:",
+            playerHP
+        );
+
+
+        monsterCanAttack = false;
+
+
+        this.time.delayedCall(1000, () => {
+            monsterCanAttack = true;
+        });
+    }
+}
+
 }
