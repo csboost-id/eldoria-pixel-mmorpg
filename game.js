@@ -38,6 +38,7 @@ function create() {
     // Player tidak bisa keluar dunia
     player.body.setCollideWorldBounds(true);
 
+
     // Kamera mengikuti player
     this.cameras.main.setBounds(0, 0, 3000, 3000);
     this.cameras.main.startFollow(player);
@@ -46,14 +47,12 @@ function create() {
     this.cameras.main.setZoom(2);
 
 
-    player.body.setCollideWorldBounds(true);
-
     cursors = this.input.keyboard.createCursorKeys();
 
     keys = this.input.keyboard.addKeys({
         W: Phaser.Input.Keyboard.KeyCodes.W,
         A: Phaser.Input.Keyboard.KeyCodes.A,
-        S: Phaser.Input.Keyboard.KeyCodes.D,
+        S: Phaser.Input.Keyboard.KeyCodes.S,
         D: Phaser.Input.Keyboard.KeyCodes.D
     });
 
