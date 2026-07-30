@@ -29,13 +29,13 @@ function create() {
 
 
     // Membuat dunia rumput
-    let grass = this.add.rectangle(
-        1500,
-        1500,
-        3000,
-        3000,
-        0x5aa05a
-    );
+    this.add.rectangle(
+    400,
+    300,
+    800,
+    600,
+    0x5aa05a
+);
 
     grass.setDepth(0);
 
@@ -48,7 +48,7 @@ function create() {
 
 
     // Ukuran dunia
-this.physics.world.setBounds(0, 0, 3000, 3000);
+this.physics.world.setBounds(0, 0, 800, 600);
 
 player.body.setCollideWorldBounds(true);
 
@@ -57,7 +57,7 @@ player.body.setCollideWorldBounds(true);
 this.cameras.main.startFollow(player);
 
 // Ukuran dunia kamera
-this.cameras.main.setBounds(0, 0, 3000, 3000);
+this.cameras.main.setBounds(0, 0, 800, 600);
 
 // Zoom normal
 this.cameras.main.setZoom(1);
