@@ -39,12 +39,12 @@ function create() {
     player.body.setCollideWorldBounds(true);
 
 
-    // Kamera mengikuti player
-    this.cameras.main.setBounds(0, 0, 3000, 3000);
-    this.cameras.main.startFollow(player);
+// Kamera sementara dimatikan
+// this.cameras.main.setBounds(0, 0, 3000, 3000);
+// this.cameras.main.startFollow(player);
 
-    // Zoom kamera
-    this.cameras.main.setZoom(2);
+// Zoom sementara dimatikan
+// this.cameras.main.setZoom(2);
 
 
     cursors = this.input.keyboard.createCursorKeys();
