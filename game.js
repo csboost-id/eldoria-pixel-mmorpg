@@ -222,3 +222,4 @@ if (keys.SPACE.isDown)
         console.log("Monster mati!");
     }
 }
+}
