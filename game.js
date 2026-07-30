@@ -27,10 +27,14 @@ let player;
 let keys;
 let obstacles;
 let monster;
-let monsterHP = 100;
-let attackRange = 80;
-let canAttack = true;
 
+let playerHP = 100;
+let monsterHP = 100;
+
+let attackRange = 80;
+
+let canAttack = true;
+let monsterCanAttack = true;
 
 function create() {
 obstacles = this.physics.add.staticGroup();
