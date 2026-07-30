@@ -277,6 +277,10 @@ if (keys.SPACE.isDown && canAttack && monster)
 
 monster = null;
 
+monsterText.setText(
+    "Monster mati!"
+);
+
 console.log("Monster mati!");
         }
     }
