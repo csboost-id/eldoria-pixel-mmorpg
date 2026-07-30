@@ -56,6 +56,10 @@ this.physics.add.existing(player);
 this.physics.world.setBounds(0,0,800,600);
 
 
+// Batas kamera
+this.cameras.main.setBounds(0,0,800,600);
+
+
 // Player tidak bisa keluar
 player.body.setCollideWorldBounds(true);
 
