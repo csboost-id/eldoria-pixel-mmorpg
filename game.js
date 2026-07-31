@@ -82,9 +82,12 @@ function spawnMonster(scene)
 
     resetMonsterHP();
 
+    if (monsterText)
+{
     monsterText.setText(
         "Monster HP: " + monsterHP
     );
+}
 }
 function create() {
 obstacles = this.physics.add.staticGroup();
