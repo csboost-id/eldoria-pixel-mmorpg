@@ -53,13 +53,8 @@ let monsterSpeed = 80;
 function resetMonsterHP()
 {
     monsterHP = 100;
+}
 
-    if (monsterText)
-    {
-        monsterText.setText(
-            "Monster HP: " + monsterHP
-        );
-    }
 }
 function spawnMonster(scene)
 {
@@ -449,9 +444,6 @@ playerEXP += 10;
     );
 
 
-    monsterText.setText(
-        "Monster mati!"
-    );
 
 
     console.log(
