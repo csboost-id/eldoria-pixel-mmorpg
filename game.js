@@ -86,9 +86,8 @@ function spawnMonster(scene)
     }
 
     resetMonsterHP();
-
-    monsterText.setText(
-        "Monster HP: " + monsterHP
+monsterText.setText(
+            "Monster HP: " + monsterHP
     );
 }
 function create() {
@@ -383,17 +382,20 @@ if (keys.SPACE.isDown && canAttack && monster)
 
 
     if (distance <= attackRange)
-    {
-        monsterHP -= 10;
+{
+    monsterHP -= 10;
+
+    monsterText.setText(
+        "Monster HP: " + monsterHP
+    );
+
+    console.log(
+        "Monster HP:",
+        monsterHP
+    );
 
 
-        console.log(
-            "Monster HP:",
-            monsterHP
-        );
-
-
-        canAttack = false;
+    canAttack = false;
 
 
         this.time.delayedCall(500, () => {
