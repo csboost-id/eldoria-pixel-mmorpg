@@ -35,6 +35,7 @@ let playerHP = 100;
 let monsterHP = 100;
 
 let playerDead = false;
+let gameOverText;
 
 let playerEXP = 0;
 let expText;
@@ -218,6 +219,18 @@ expText.setScrollFactor(0);
 );
 
 levelText.setScrollFactor(0);
+    // GAME OVER TEXT
+gameOverText = this.add.text(
+    250,
+    250,
+    "",
+    {
+        fontSize: "40px",
+        fill: "#ff0000"
+    }
+);
+
+gameOverText.setScrollFactor(0);
     
     this.physics.add.existing(player);
     this.physics.add.collider(
@@ -241,12 +254,13 @@ levelText.setScrollFactor(0);
 
 
     // Keyboard
-    keys = this.input.keyboard.addKeys({
+keys = this.input.keyboard.addKeys({
     W: Phaser.Input.Keyboard.KeyCodes.W,
     A: Phaser.Input.Keyboard.KeyCodes.A,
     S: Phaser.Input.Keyboard.KeyCodes.S,
     D: Phaser.Input.Keyboard.KeyCodes.D,
-    SPACE: Phaser.Input.Keyboard.KeyCodes.SPACE
+    SPACE: Phaser.Input.Keyboard.KeyCodes.SPACE,
+    R: Phaser.Input.Keyboard.KeyCodes.R
 });
 
 }
@@ -254,10 +268,22 @@ levelText.setScrollFactor(0);
 function update() {
 
 
+    if (playerDead)
+{
     player.body.setVelocity(0);
 
+    if (keys.R.isDown)
+    {
+        location.reload();
+    }
 
-    const speed = 200;
+    return;
+}
+
+
+player.body.setVelocity(0);
+
+const speed = 200;
 
 
     if (keys.A.isDown)
@@ -285,7 +311,7 @@ function update() {
 
 
 // Monster mengejar player
-if (monster)
+if (monster && !playerDead)
 {
     let monsterDistance = Phaser.Math.Distance.Between(
         monster.x,
@@ -428,21 +454,23 @@ if (monster && monsterCanAttack && !playerDead)
 
 
         if (playerHP <= 0)
-        {
-            playerHP = 0;
+{
+    playerHP = 0;
 
-            playerDead = true;
+    playerDead = true;
 
-            hpText.setText(
-                "Player Mati!"
-            );
+    hpText.setText(
+        "Player Mati!"
+    );
 
-            console.log(
-                "GAME OVER"
-            );
+    gameOverText.setText(
+        "GAME OVER\nTekan R"
+    );
 
-            monster.body.setVelocity(0);
-        }
+    monster.body.setVelocity(0);
+
+    console.log("GAME OVER");
+}
         else
         {
             hpText.setText(
