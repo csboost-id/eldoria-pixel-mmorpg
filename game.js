@@ -34,6 +34,8 @@ let monsterText;
 let playerHP = 100;
 let monsterHP = 100;
 
+let playerDead = false;
+
 let playerEXP = 0;
 let expText;
 
@@ -409,7 +411,8 @@ if (keys.SPACE.isDown && canAttack && monster)
 
 
 // Monster menyerang player
-if (monster && monsterCanAttack)
+// Monster menyerang player
+if (monster && monsterCanAttack && !playerDead)
 {
     let monsterDistance = Phaser.Math.Distance.Between(
         player.x,
@@ -424,9 +427,28 @@ if (monster && monsterCanAttack)
         playerHP -= 5;
 
 
-        hpText.setText(
-            "Player HP: " + playerHP
-        );
+        if (playerHP <= 0)
+        {
+            playerHP = 0;
+
+            playerDead = true;
+
+            hpText.setText(
+                "Player Mati!"
+            );
+
+            console.log(
+                "GAME OVER"
+            );
+
+            monster.body.setVelocity(0);
+        }
+        else
+        {
+            hpText.setText(
+                "Player HP: " + playerHP
+            );
+        }
 
 
         console.log(
