@@ -86,6 +86,10 @@ function spawnMonster(scene)
     }
 
     resetMonsterHP();
+
+    monsterText.setText(
+        "Monster HP: " + monsterHP
+    );
 }
 function create() {
 obstacles = this.physics.add.staticGroup();
@@ -179,8 +183,6 @@ let house = this.add.rectangle(
 
 house.setDepth(1);
 
-// Spawn monster pertama
-spawnMonster(this);
     
     // Player
     player = this.add.rectangle(
@@ -216,8 +218,13 @@ monsterText = this.add.text(
 );
 
 monsterText.setScrollFactor(0);
-resetMonsterHP();
-    expText = this.add.text(
+
+
+// Spawn monster pertama
+spawnMonster(this);
+
+
+expText = this.add.text(
     20,
     80,
     "EXP: 0",
@@ -379,9 +386,6 @@ if (keys.SPACE.isDown && canAttack && monster)
     {
         monsterHP -= 10;
 
-        monsterText.setText(
-            "Monster HP: " + monsterHP
-        );
 
         console.log(
             "Monster HP:",
@@ -401,9 +405,13 @@ if (keys.SPACE.isDown && canAttack && monster)
 {
     monster.destroy();
 
-    monster = null;
+monster = null;
 
-    playerEXP += 10;
+this.time.delayedCall(2000, () => {
+    spawnMonster(this);
+});
+
+playerEXP += 10;
 
 
     if (playerEXP >= expNeed)
