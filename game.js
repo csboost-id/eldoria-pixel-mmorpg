@@ -50,12 +50,12 @@ let canAttack = true;
 let monsterCanAttack = true;
 
 let monsterSpeed = 80;
+
 function resetMonsterHP()
 {
     monsterHP = 100;
 }
 
-}
 function spawnMonster(scene)
 {
     monster = scene.add.rectangle(
@@ -81,8 +81,9 @@ function spawnMonster(scene)
     }
 
     resetMonsterHP();
-monsterText.setText(
-            "Monster HP: " + monsterHP
+
+    monsterText.setText(
+        "Monster HP: " + monsterHP
     );
 }
 function create() {
