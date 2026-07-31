@@ -489,8 +489,13 @@ if (monster && monsterCanAttack && !playerDead)
 
 
         this.time.delayedCall(1000, () => {
-            monsterCanAttack = true;
-        });
+
+    if (!playerDead)
+    {
+        monsterCanAttack = true;
+    }
+
+});
     }
 }
 }
