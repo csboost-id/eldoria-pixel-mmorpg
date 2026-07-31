@@ -58,13 +58,11 @@ function resetMonsterHP()
 
 function spawnMonster(scene)
 {
-    monster = scene.add.rectangle(
-        650,
-        200,
-        40,
-        40,
-        0xff0000
-    );
+    monster = scene.physics.add.sprite(
+    650,
+    200,
+    "green_slime"
+);
 
     monster.setDepth(1);
 
