@@ -61,6 +61,32 @@ function resetMonsterHP()
         );
     }
 }
+function spawnMonster(scene)
+{
+    monster = scene.add.rectangle(
+        650,
+        200,
+        40,
+        40,
+        0xff0000
+    );
+
+    monster.setDepth(1);
+
+    scene.physics.add.existing(monster);
+
+    monster.body.setCollideWorldBounds(true);
+
+    if (obstacles)
+    {
+        scene.physics.add.collider(
+            monster,
+            obstacles
+        );
+    }
+
+    resetMonsterHP();
+}
 function create() {
 obstacles = this.physics.add.staticGroup();
     
@@ -153,23 +179,8 @@ let house = this.add.rectangle(
 
 house.setDepth(1);
 
-// Monster test
-monster = this.add.rectangle(
-    650,
-    200,
-    40,
-    40,
-    0xff0000
-);
-
-monster.setDepth(1);
-
-    this.physics.add.existing(monster);
-monster.body.setCollideWorldBounds(true);
-this.physics.add.collider(
-    monster,
-    obstacles
-);
+// Spawn monster pertama
+spawnMonster(this);
     
     // Player
     player = this.add.rectangle(
@@ -205,7 +216,7 @@ monsterText = this.add.text(
 );
 
 monsterText.setScrollFactor(0);
-
+resetMonsterHP();
     expText = this.add.text(
     20,
     80,
