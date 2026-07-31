@@ -50,7 +50,17 @@ let canAttack = true;
 let monsterCanAttack = true;
 
 let monsterSpeed = 80;
+function resetMonsterHP()
+{
+    monsterHP = 100;
 
+    if (monsterText)
+    {
+        monsterText.setText(
+            "Monster HP: " + monsterHP
+        );
+    }
+}
 function create() {
 obstacles = this.physics.add.staticGroup();
     
